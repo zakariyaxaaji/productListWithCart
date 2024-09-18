@@ -1,31 +1,21 @@
 import React from "react";
 import styles from "./cartItem.module.css";
-const CartItems = ({
-  cartItems,
-  setCartItems,
-  readyCart,
-  setReadyCart,
-  item,
-}) => {
+const CartItems = ({ readyCart, setReadyCart, product }) => {
   function handelDelete() {
-    const newArr = readyCart.filter((cartItem) => cartItem.name !== item.name);
-    setReadyCart(newArr);
-
-    const newItemsArray = cartItems.filter(
-      (cartItem) => cartItem.name !== item.name
+    const newArr = readyCart.filter(
+      (cartItem) => cartItem.name !== product.name
     );
-    setCartItems(newItemsArray);
+    setReadyCart(newArr);
   }
-  console.log(item)
 
   return (
     <div className={styles.container}>
       <div className={styles.flexCol}>
-        <p>{item.name}</p>
+        <p>{product.name}</p>
         <div>
-          <span>{item.quantity}x</span>
-          <span>@${item.price}</span>
-          <span>${item.totalPrice}</span>
+          <span>{product.quantity}x</span>
+          <span>@${product.price}</span>
+          <span>${product.totalPrice}</span>
         </div>
       </div>
       <div className={styles.deleteBtnContainer}>

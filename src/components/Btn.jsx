@@ -5,45 +5,50 @@ import { cartItemsContext } from "./Container";
 
 const Btn = ({ product }) => {
   const cartData = useContext(cartItemsContext);
-  const { cartItems, setCartItems, readyCart, setReadyCart } = cartData;
+  const { readyCart, setReadyCart } = cartData;
 
+  
+  //utillity functions
   function addToCart() {
-    // add product to productList
-    cartData.setCartItems([...cartItems, product]);
+    // Add product to Cart
+    setReadyCart([
+      ...readyCart,
+      { ...product, quantity: 1, totalPrice: product.price * 1 },
+    ]);
   }
   function decrement() {
-    // decrement the quantity of the product in cartItems
-    const updatedCartItems = cartItems.filter(
-      (cartItem) => cartItem.name !== product.name
+    // Decrement the quantity of the product in readyCart
+    const updatedCartItems = readyCart.map((cartItem) =>
+      cartItem.name === product.name
+        ? {
+            ...cartItem,
+            quantity:
+              cartItem.quantity > 1 ? cartItem.quantity - 1 : cartItem.quantity, // Use cartItem.quantity, not undefined quantity
+            totalPrice:
+              cartItem.quantity > 1
+                ? cartItem.price * (cartItem.quantity - 1)
+                : cartItem.price, // Update totalPrice accordingly
+          }
+        : cartItem
     );
-    setCartItems(updatedCartItems);
-
-    // const updatedReadyCart = readyCart.map((item) => {
-    //   item.name === product.name && item.quantity > 0;
-    //   console.log("working");
-    //   // ? { ...item, quantity: item.quantity - 1 }
-    //   // : item;
-    // });
-    // setReadyCart(updatedReadyCart);
+    setReadyCart(updatedCartItems);
   }
-
   function increment() {
-    const updatedReadyCart = readyCart.map((item) => {
+    const updatedReadyCart = readyCart.map((item) =>
       item.name === product.name
-        ? { ...item, quantity: item.quantity + 1 }
-         : item;
-    });
-     setReadyCart(updatedReadyCart);
+        ? {
+            ...item,
+            quantity: item.quantity + 1, // Update quantity first
+            totalPrice: item.price * (item.quantity + 1), // Recalculate totalPrice based on new quantity
+          }
+        : item
+    );
+    setReadyCart(updatedReadyCart);
   }
+  // Find the product in readyCart to get the updated quantity
+  const productInCart = readyCart.find((cartItem) => cartItem.name === product.name);
 
-  let foundProduct;
-  if (readyCart[0]) {
-    foundProduct = readyCart.find((item) => item.name === product.name);
-  }
-
-  const productQuantity = foundProduct ? foundProduct.quantity : 0;
-
-  return productQuantity < 1 ? (
+  return !readyCart.some((cartItem) => cartItem.name === product.name) ? (
     <button onClick={addToCart} className={styles.addToCartBtn}>
       <div className={styles.divInBtn}>
         <img
@@ -63,7 +68,7 @@ const Btn = ({ product }) => {
           alt="decrement icon"
         />
       </button>
-      <input type="number" value={productQuantity} readOnly />
+      <span>{productInCart.quantity}</span>
       <button onClick={increment}>
         <img
           className={styles.quantity}

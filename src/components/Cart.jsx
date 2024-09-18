@@ -6,13 +6,16 @@ import CartItem from "./CartItem";
 
 const Cart = () => {
   const cartData = useContext(cartItemsContext);
-  const { cartItems, setCartItems, readyCart, setReadyCart } = cartData;
+  const { readyCart, setReadyCart } = cartData;
+  const orderTotal = readyCart.reduce((acc, item) => {
+    return (acc += item.totalPrice);
+  }, 0);
 
   console.log(readyCart);
-  console.log(cartItems);
+  console.log(orderTotal);
   return (
     <div className={styles.cartContainer}>
-      <h4>Your Cart ({cartItems.length})</h4>
+      <h4>Your Cart ({readyCart.length})</h4>
       {readyCart.length < 1 ? (
         <div>
           <div className={styles.imgContainer}>
@@ -24,17 +27,21 @@ const Cart = () => {
           <p>Your added items will appear here</p>
         </div>
       ) : (
-        readyCart.map((item, index) => (
-          <CartItem
-            key={index}
-            cartItems={cartItems}
-            setCartItems={setCartItems}
-            readyCart={readyCart}
-            setReadyCart={setReadyCart}
-            item={item}
-          />
+        readyCart.map((product, index) => (
+          <div>
+            <CartItem
+              key={index}
+              readyCart={readyCart}
+              setReadyCart={setReadyCart}
+              product={product}
+            />
+          </div>
         ))
       )}
+      <div className={styles.orderTotal}>
+        <p>Order Total:</p>
+        <h2>${orderTotal}</h2>
+      </div>
     </div>
   );
 };

@@ -10,3 +10,9 @@
   justify-content: center;
   align-items: center;
 }
+.orderTotal{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
