@@ -1,0 +1,46 @@
+.container {
+  display: flex;
+  gap: 5px;
+  margin: 0.5rem 0;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px rgba(128, 128, 128, 0.4) solid;
+}
+.flexCol {
+  display: flex;
+  flex-direction: column;
+  background-color: red;
+  font-size: 0.8rem;
+}
+.flexCol div {
+  align-self: flex-start;
+}
+.flexCol p {
+  font-weight: var(--fw-semibold);
+}
+.flexCol span {
+  margin: 0.5rem;
+}
+.flexCol span:first-child {
+  margin-left: 0;
+}
+.deleteBtnContainer{
+    border: 1px solid var(--rose300);
+    background-color: #fff;
+    color: var(--red);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.deleteBtnContainer:hover{
+    border-color: black;
+    
+}
+.removeBtn{
+    background-color: transparent;
+    display: flex;
+    cursor: pointer;
+}

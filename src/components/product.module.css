@@ -1,0 +1,10 @@
+.imgContainer {
+  width: 200px;
+  margin-bottom: 1rem;
+  position: relative;
+}
+.productImg {
+  max-width: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}

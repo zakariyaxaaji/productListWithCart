@@ -1,0 +1,12 @@
+.cartContainer{
+  background-color: var(--rose50);
+  height: fit-content;
+  padding: .5rem;
+  border-radius: 8px;
+  width: 230px;
+}
+.imgContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
