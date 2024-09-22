@@ -12,10 +12,10 @@ const CartItems = ({ readyCart, setReadyCart, product }) => {
     <div className={styles.container}>
       <div className={styles.flexCol}>
         <p>{product.name}</p>
-        <div>
+        <div className={styles.cartNumbers}>
           <span>{product.quantity}x</span>
-          <span>@${product.price}</span>
-          <span>${product.totalPrice}</span>
+          <span>@${product.price.toFixed(2)}</span>
+          <span>${product.totalPrice.toFixed(2)}</span>
         </div>
       </div>
       <div className={styles.deleteBtnContainer}>

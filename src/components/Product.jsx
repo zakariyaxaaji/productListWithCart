@@ -1,27 +1,27 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, act } from "react";
 import styles from "./product.module.css";
 import Btn from "./Btn";
 import { cartItemsContext } from "./Container";
 
 //add the context here so you can render the incremnt/decrement buttons after the first item is added to the cart
 const Product = ({ product }) => {
-  const [clicked, setClicked] = useState(false);
+  const [active, setActive] = useState(false);
   return (
     <div className={styles.productContainer}>
-      <div className={styles.imgContainer}>
+      <div className={styles.imgContainer} >
         <picture>
           <source media="(min-width:1024px)" srcSet={product.image.desktop} />
           <source media="(min-width:786px)" srcSet={product.image.tablet} />
           <source media="(max-width:767px)" srcSet={product.image.mobile} />
           <img
-            className={styles.productImg}
+            className={`${styles.productImg} ${active ? styles.imgBorder : ''}` }
             src={product.image.desktop}
             alt={product.name}
             loading="lazy"
           />
         </picture>
 
-        <Btn product={product} clicked={clicked} setClicked={setClicked} />
+        <Btn product={product} setActive={setActive} />
       </div>
       <div className={styles.productText}>
         <span>{product.category}</span>

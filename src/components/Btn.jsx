@@ -3,11 +3,10 @@ import styles from "./button.module.css";
 import { useContext } from "react";
 import { cartItemsContext } from "./Container";
 
-const Btn = ({ product }) => {
+const Btn = ({ product, setActive }) => {
   const cartData = useContext(cartItemsContext);
   const { readyCart, setReadyCart } = cartData;
 
-  
   //utillity functions
   function addToCart() {
     // Add product to Cart
@@ -15,23 +14,7 @@ const Btn = ({ product }) => {
       ...readyCart,
       { ...product, quantity: 1, totalPrice: product.price * 1 },
     ]);
-  }
-  function decrement() {
-    // Decrement the quantity of the product in readyCart
-    const updatedCartItems = readyCart.map((cartItem) =>
-      cartItem.name === product.name
-        ? {
-            ...cartItem,
-            quantity:
-              cartItem.quantity > 1 ? cartItem.quantity - 1 : cartItem.quantity, // Use cartItem.quantity, not undefined quantity
-            totalPrice:
-              cartItem.quantity > 1
-                ? cartItem.price * (cartItem.quantity - 1)
-                : cartItem.price, // Update totalPrice accordingly
-          }
-        : cartItem
-    );
-    setReadyCart(updatedCartItems);
+    setActive(true);
   }
   function increment() {
     const updatedReadyCart = readyCart.map((item) =>
@@ -45,8 +28,36 @@ const Btn = ({ product }) => {
     );
     setReadyCart(updatedReadyCart);
   }
+  function decrement() {
+    const updatedCartItems = readyCart
+      .map((cartItem) => {
+        if (cartItem.name === product.name) {
+          if (cartItem.quantity > 1) {
+            // Decrement the quantity if it's greater than 1
+            return {
+              ...cartItem,
+              quantity: cartItem.quantity - 1,
+              totalPrice: cartItem.price * (cartItem.quantity - 1),
+            };
+          } else {
+            // Return null if the quantity is 1 to mark it for removal
+            return null;
+          }
+        }
+        return cartItem; // If not the same product, return the cart item as is
+      })
+      .filter((cartItem) => cartItem !== null); // Remove items that are marked as null
+
+    setReadyCart(updatedCartItems);
+
+    if (!updatedCartItems.some((item) => item.name === product.name)) {
+      setActive(false); // Remove border if item is removed from the cart
+    }
+  }
   // Find the product in readyCart to get the updated quantity
-  const productInCart = readyCart.find((cartItem) => cartItem.name === product.name);
+  const productInCart = readyCart.find(
+    (cartItem) => cartItem.name === product.name
+  );
 
   return !readyCart.some((cartItem) => cartItem.name === product.name) ? (
     <button onClick={addToCart} className={styles.addToCartBtn}>

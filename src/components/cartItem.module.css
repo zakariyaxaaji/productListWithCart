@@ -4,12 +4,11 @@
   margin: 0.5rem 0;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px rgba(128, 128, 128, 0.4) solid;
+  border-bottom: 1px rgba(128, 128, 128, 0.08) solid;
 }
 .flexCol {
   display: flex;
   flex-direction: column;
-  background-color: red;
   font-size: 0.8rem;
 }
 .flexCol div {
@@ -24,23 +23,37 @@
 .flexCol span:first-child {
   margin-left: 0;
 }
-.deleteBtnContainer{
-    border: 1px solid var(--rose300);
-    background-color: #fff;
-    color: var(--red);
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
+.deleteBtnContainer {
+  border: 1px solid var(--rose300);
+  background-color: #fff;
+  color: var(--red);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.deleteBtnContainer:hover{
-    border-color: black;
-    
+.deleteBtnContainer:hover {
+  border-color: black;
 }
-.removeBtn{
-    background-color: transparent;
-    display: flex;
-    cursor: pointer;
+.removeBtn {
+  background-color: transparent;
+  display: flex;
+  cursor: pointer;
+}
+.cartNumbers {
+  display: flex;
+  
+  justify-content: space-evenly;
+}
+.cartNumbers span:first-child {
+  color: var(--red);
+  font-weight: bold;
+}
+.cartNumbers span:nth-child(2) {
+  opacity: 50%;
+  color: var(--rose900);
+}
+.cartNumbers span:nth-child(3) {
+  color: var(--rose900);
 }

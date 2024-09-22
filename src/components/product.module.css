@@ -1,10 +1,28 @@
 .imgContainer {
   width: 200px;
-  margin-bottom: 1rem;
+  margin-bottom: .9rem;
   position: relative;
 }
 .productImg {
   max-width: 100%;
   object-fit: cover;
   border-radius: 8px;
+}
+.imgBorder{
+  border: 2px solid var(--red);
+  border-radius: 8px;
+}
+.productText{
+ padding-bottom: 1rem;
+}
+.productText span:nth-child(1) {
+  opacity: 50%;
+  color: var(--rose900);
+}
+.productText h4{
+  color: var(--rose900);
+}
+.productText span:nth-child(3){
+  color: var(--red);
+  font-weight: var(--fw-semibold);
 }

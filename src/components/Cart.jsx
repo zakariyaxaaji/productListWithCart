@@ -28,9 +28,8 @@ const Cart = () => {
         </div>
       ) : (
         readyCart.map((product, index) => (
-          <div>
+          <div key={index}>
             <CartItem
-              key={index}
               readyCart={readyCart}
               setReadyCart={setReadyCart}
               product={product}
