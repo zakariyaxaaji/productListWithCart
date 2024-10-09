@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./button.module.css";
 import { useContext } from "react";
 import { cartItemsContext } from "./Container";
@@ -49,11 +49,14 @@ const Btn = ({ product, setActive }) => {
       .filter((cartItem) => cartItem !== null); // Remove items that are marked as null
 
     setReadyCart(updatedCartItems);
-
-    if (!updatedCartItems.some((item) => item.name === product.name)) {
-      setActive(false); // Remove border if item is removed from the cart
-    }
   }
+
+  if (!readyCart.some((item) => item.name === product.name)) {
+    setTimeout(() => {
+      setActive(false); // Remove border if item is removed from the cart
+    }, 100);
+  }
+
   // Find the product in readyCart to get the updated quantity
   const productInCart = readyCart.find(
     (cartItem) => cartItem.name === product.name

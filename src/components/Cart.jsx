@@ -27,20 +27,29 @@ const Cart = () => {
           <p>Your added items will appear here</p>
         </div>
       ) : (
-        readyCart.map((product, index) => (
-          <div key={index}>
-            <CartItem
-              readyCart={readyCart}
-              setReadyCart={setReadyCart}
-              product={product}
-            />
+        <div>
+          {readyCart.map((product, index) => (
+            <div key={index}>
+              <CartItem
+                readyCart={readyCart}
+                setReadyCart={setReadyCart}
+                product={product}
+              />
+            </div>
+          ))}
+          <div className={styles.orderTotal}>
+            <p>Order Total:</p>
+            <h1>${orderTotal}</h1>
           </div>
-        ))
+          <div className={styles.carbonNeutral}>
+            <img src="../src/assets/images/icon-carbon-neutral.svg" alt="" />
+            <p>
+              This is a <b>carbon-neutral</b> delivery
+            </p>
+          </div>
+          <button className={styles.confirmOrder}>Confirm Order</button>
+        </div>
       )}
-      <div className={styles.orderTotal}>
-        <p>Order Total:</p>
-        <h2>${orderTotal}</h2>
-      </div>
     </div>
   );
 };

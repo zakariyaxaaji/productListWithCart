@@ -10,14 +10,14 @@
   border: solid 1px var(--red);
   font-weight: bold;
 }
-button:hover {
-  color: var(--red);
-}
 .divInBtn {
   display: flex;
   gap: 0.5rem;
   padding: 5px;
   align-items: center;
+}
+.divInBtn p:hover {
+  color: var(--red);
 }
 .inputContainer {
   width: 125px;

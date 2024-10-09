@@ -1,9 +1,9 @@
 .cartContainer{
   background-color: var(--rose50);
   height: fit-content;
-  padding: .5rem;
+  padding: 1.5rem;
   border-radius: 8px;
-  width: 230px;
+  width: 28%;
 }
 .cartContainer h4{
   color: var(--red);
@@ -19,4 +19,27 @@
   justify-content: space-between;
   align-items: center;
   font-size: .8rem;
+}
+.confirmOrder{
+  width: 80%;
+  height: 2rem;
+  border-radius: 1rem;
+  display: block;
+  margin: 0 auto;
+  background-color: var(--red);
+  color: white;
+  transition: background-color, 1s;
+}
+.confirmOrder:hover{
+  background-color: var(--rose900);
+}
+
+.carbonNeutral{
+  background-color: var(--rose50);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-size: .8rem;
+  margin: 1rem;
 }
