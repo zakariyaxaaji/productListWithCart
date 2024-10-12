@@ -18,7 +18,7 @@
             "desktop": "../src/assets/images/image-creme-brulee-desktop.jpg"
         },
         "name": "Vanilla Bean Crème Brûlée",
-        "category": "Crème Brûlée",
+        "category": "Creme-Brulee",
         "price": 7.00
     },
     {
@@ -89,13 +89,13 @@
     },
     {
         "image": {
-            "thumbnail": "../src/assets/images/image-panna-cotta-thumbnail.jpg",
-            "mobile": "../src/assets/images/image-panna-cotta-mobile.jpg",
-            "tablet": "../src/assets/images/image-panna-cotta-tablet.jpg",
-            "desktop": "../src/assets/images/image-panna-cotta-desktop.jpg"
+            "thumbnail": "../src/assets/images/image-Panna-cotta-thumbnail.jpg",
+            "mobile": "../src/assets/images/image-Panna-cotta-mobile.jpg",
+            "tablet": "../src/assets/images/image-Panna-cotta-tablet.jpg",
+            "desktop": "../src/assets/images/image-Panna-cotta-desktop.jpg"
         },
         "name": "Vanilla Panna Cotta",
-        "category": "Panna Cotta",
+        "category": "Panna-Cotta",
         "price": 6.50
     }
 ]

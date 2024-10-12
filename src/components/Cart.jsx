@@ -2,20 +2,28 @@ import React, { useState } from "react";
 import styles from "./cart.module.css";
 import { useContext } from "react";
 import { cartItemsContext } from "./Container";
+import ReactDOM, { createPortal } from "react-dom";
 import CartItem from "./CartItem";
+import Modal from "./Modal";
 
-const Cart = () => {
+const Cart = ({ modalView }) => {
   const cartData = useContext(cartItemsContext);
   const { readyCart, setReadyCart } = cartData;
   const orderTotal = readyCart.reduce((acc, item) => {
     return (acc += item.totalPrice);
   }, 0);
 
+  function openPortal() {
+    return createPortal(<Modal />, document.getElementById("modal"));
+  }
   console.log(readyCart);
   console.log(orderTotal);
   return (
-    <div className={styles.cartContainer}>
-      <h4>Your Cart ({readyCart.length})</h4>
+    <div
+      className={modalView ? styles.modalCartContainer : styles.cartContainer}
+    >
+      {modalView ? "" : <h4>Your Cart ({readyCart.length})</h4>}
+
       {readyCart.length < 1 ? (
         <div>
           <div className={styles.imgContainer}>
@@ -34,20 +42,34 @@ const Cart = () => {
                 readyCart={readyCart}
                 setReadyCart={setReadyCart}
                 product={product}
+                modalView={modalView}
               />
             </div>
           ))}
           <div className={styles.orderTotal}>
-            <p>Order Total:</p>
-            <h1>${orderTotal}</h1>
-          </div>
-          <div className={styles.carbonNeutral}>
-            <img src="../src/assets/images/icon-carbon-neutral.svg" alt="" />
-            <p>
-              This is a <b>carbon-neutral</b> delivery
+            <p className={modalView && styles.modalViewOrderTotal}>
+              Order Total:
             </p>
+            <h1 className={modalView && styles.modalViewOrderTotal}>
+              ${orderTotal.toFixed(2)}
+            </h1>
           </div>
-          <button className={styles.confirmOrder}>Confirm Order</button>
+          {!modalView && (
+            <div className={styles.carbonNeutral}>
+              <img src="../src/assets/images/icon-carbon-neutral.svg" alt="" />
+              <p>
+                This is a <b>carbon-neutral</b> delivery
+              </p>
+            </div>
+          )}
+
+          {modalView ? (
+            <button className={styles.confirmOrder}>Start New Order</button>
+          ) : (
+            <button className={styles.confirmOrder} onClick={openPortal}>
+              Confirm Order
+            </button>
+          )}
         </div>
       )}
     </div>

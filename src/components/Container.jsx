@@ -1,5 +1,6 @@
 import styles from "./container.module.css";
-import { useState, createContext, useEffect } from "react";
+import { useState, createContext } from "react";
+import Modal from "./Modal";
 export const cartItemsContext = createContext();
 
 const Container = ({ children }) => {
@@ -10,7 +11,7 @@ const Container = ({ children }) => {
 
   return (
     <cartItemsContext.Provider value={cartData}>
-      <div className={styles.container}>{children}</div>;
+      <div className={styles.container}>{children}</div>
     </cartItemsContext.Provider>
   );
 };

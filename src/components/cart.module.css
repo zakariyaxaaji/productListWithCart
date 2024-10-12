@@ -43,3 +43,10 @@
   font-size: .8rem;
   margin: 1rem;
 }
+.modalCartContainer{
+  overflow-y: auto;
+  height: min-content;
+}
+.modalViewOrderTotal{
+  padding: 1rem;
+}

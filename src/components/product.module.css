@@ -1,6 +1,6 @@
 .imgContainer {
   width: 200px;
-  margin-bottom: .9rem;
+  margin-bottom: 0.9rem;
   position: relative;
 }
 .productImg {
@@ -8,21 +8,21 @@
   object-fit: cover;
   border-radius: 8px;
 }
-.imgBorder{
+.imgBorder {
   border: 2px solid var(--red);
   border-radius: 8px;
 }
-.productText{
- padding-bottom: 1rem;
+.productText {
+  padding-bottom: 1rem;
 }
 .productText span:nth-child(1) {
   opacity: 50%;
   color: var(--rose900);
 }
-.productText h4{
+.productText h4 {
   color: var(--rose900);
 }
-.productText span:nth-child(3){
+.productText span:nth-child(3) {
   color: var(--red);
   font-weight: var(--fw-semibold);
 }
