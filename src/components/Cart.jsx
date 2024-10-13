@@ -6,7 +6,7 @@ import ReactDOM, { createPortal } from "react-dom";
 import CartItem from "./CartItem";
 import Modal from "./Modal";
 
-const Cart = ({ modalView }) => {
+const Cart = ({ modalView, setModalView }) => {
   const cartData = useContext(cartItemsContext);
   const { readyCart, setReadyCart } = cartData;
   const orderTotal = readyCart.reduce((acc, item) => {
@@ -14,15 +14,22 @@ const Cart = ({ modalView }) => {
   }, 0);
 
   function openPortal() {
-    return createPortal(<Modal />, document.getElementById("modal"));
+    console.log("open portal i clicked, modalView is set to TRUE");
+    setModalView && setModalView(true);
   }
+
+  function closePortal() {
+    console.log("close portal i clicked, modalView is set to FALSE");
+    setReadyCart([]);
+    setModalView && setModalView(false);
+  }
+  console.log(modalView); // return undefiend
   console.log(readyCart);
-  console.log(orderTotal);
   return (
     <div
       className={modalView ? styles.modalCartContainer : styles.cartContainer}
     >
-      {modalView ? "" : <h4>Your Cart ({readyCart.length})</h4>}
+      {!modalView && <h4>Your Cart ({readyCart.length})</h4>}
 
       {readyCart.length < 1 ? (
         <div>
@@ -47,7 +54,7 @@ const Cart = ({ modalView }) => {
             </div>
           ))}
           <div className={styles.orderTotal}>
-            <p className={modalView && styles.modalViewOrderTotal}>
+            <p className={modalView ? styles.modalViewOrderTotal : ""}>
               Order Total:
             </p>
             <h1 className={modalView && styles.modalViewOrderTotal}>
@@ -64,7 +71,9 @@ const Cart = ({ modalView }) => {
           )}
 
           {modalView ? (
-            <button className={styles.confirmOrder}>Start New Order</button>
+            <button className={styles.confirmOrder} onClick={closePortal}>
+              Start New Order
+            </button>
           ) : (
             <button className={styles.confirmOrder} onClick={openPortal}>
               Confirm Order
@@ -72,6 +81,7 @@ const Cart = ({ modalView }) => {
           )}
         </div>
       )}
+      
     </div>
   );
 };
