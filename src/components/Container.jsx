@@ -1,11 +1,5 @@
 import styles from "./container.module.css";
-<<<<<<< HEAD
-import { useState, createContext } from "react";
-import Modal from "./Modal";
-import { createPortal } from "react-dom";
-=======
 import { useState, createContext, useEffect } from "react";
->>>>>>> parent of 7068b22 (made the cart component more variable so i could use it in the modal as well)
 export const cartItemsContext = createContext();
 
 const Container = ({ children }) => {
