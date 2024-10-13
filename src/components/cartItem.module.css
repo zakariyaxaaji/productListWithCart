@@ -43,7 +43,7 @@
 }
 .cartNumbers {
   display: flex;
-
+  
   justify-content: space-evenly;
 }
 .cartNumbers span:first-child {
@@ -56,19 +56,4 @@
 }
 .cartNumbers span:nth-child(3) {
   color: var(--rose900);
-}
-
-.modalviewContainer {
-  display: grid;
-  grid-template-columns: 1fr 1fr 2fr;
-  align-items: center;
-  padding: 1rem;
-  font-weight: var(--fw-semibold);
-}
-.modalViewTotalPrice {
-  flex: 1;
-  justify-self: flex-end;
-}
-.thumbnailImg{
-  border-radius: 8px;
 }
