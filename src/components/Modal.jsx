@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Cart from "./Cart";
 import styles from "./modal.module.css";
 const Modal = () => {
