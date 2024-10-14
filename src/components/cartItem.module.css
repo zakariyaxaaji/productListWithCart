@@ -57,3 +57,19 @@
 .cartNumbers span:nth-child(3) {
   color: var(--rose900);
 }
+.modalContainer{
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  align-items: center;
+  gap: 1rem;
+  padding: .5rem;
+  border-bottom: 1px rgba(128, 128, 128, 0.08) solid;
+}
+.thumbnailImg{
+  border-radius: 8px;
+}
+.modalRightSidePrice{
+  flex: 1;
+  justify-self: end;
+  font-weight: var(--fw-semibold);
+}

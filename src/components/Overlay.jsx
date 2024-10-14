@@ -1,12 +1,15 @@
-import React from 'react'
-import Modal from './Modal'
-import { createPortal } from 'react-dom'
+import React from "react";
+import { createPortal } from "react-dom";
+import Cart from "./Cart";
 const Overlay = () => {
   return (
     <div>
-        {createPortal(<Modal modalView = {true}/>, document.getElementById('modal'))}
+      {createPortal(
+        <Cart modalView={true} />,
+        document.getElementById("modal")
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default Overlay
+export default Overlay;

@@ -9,15 +9,20 @@ const CartItems = ({ readyCart, setReadyCart, product, modalView }) => {
   }
 
   return (
-    <div className={styles.container}>
+    <div className={modalView ? styles.modalContainer : styles.container}>
+      {modalView && <img className={styles.thumbnailImg} src={product.image.thumbnail} />}
       <div className={styles.flexCol}>
         <p>{product.name}</p>
         <div className={styles.cartNumbers}>
           <span>{product.quantity}x</span>
           <span>@${product.price.toFixed(2)}</span>
-          <span>${product.totalPrice.toFixed(2)}</span>
+          {!modalView && <span>${product.totalPrice.toFixed(2)}</span>}
+           
+           
         </div>
+        
       </div>
+      {modalView && <span className={styles.modalRightSidePrice}>${product.totalPrice.toFixed(2)}</span> }
       {!modalView && (
         <div className={styles.deleteBtnContainer}>
           <button onClick={() => handelDelete()} className={styles.removeBtn}>

@@ -43,3 +43,30 @@
   font-size: .8rem;
   margin: 1rem;
 }
+.modalCartContainer{
+  position: absolute;
+  z-index: 2;
+  
+  padding: 2rem;
+  width: 30%;
+  margin: auto;
+  background-color: var(--rose100);
+  border: 1px solid hsla(0, 0%, 0%, 0.089);
+  border-radius: 8px;
+  
+}
+.modalHeader{
+margin: 1rem 0rem;
+}
+.modalListContainer{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-radius: 8px;
+  padding: .5rem;
+  background-color: var(--rose50);
+  
+}
+.modalViewOrderTotal{
+  margin-left: 1rem;
+}
