@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./cartItem.module.css";
-const CartItems = ({ readyCart, setReadyCart, product }) => {
+const CartItems = ({ readyCart, setReadyCart, product, modalView }) => {
   function handelDelete() {
     const newArr = readyCart.filter(
       (cartItem) => cartItem.name !== product.name
@@ -18,14 +18,16 @@ const CartItems = ({ readyCart, setReadyCart, product }) => {
           <span>${product.totalPrice.toFixed(2)}</span>
         </div>
       </div>
-      <div className={styles.deleteBtnContainer}>
-        <button onClick={() => handelDelete()} className={styles.removeBtn}>
-          <img
-            src="../src/assets/images/icon-remove-item.svg"
-            alt="an x icon"
-          />
-        </button>
-      </div>
+      {!modalView && (
+        <div className={styles.deleteBtnContainer}>
+          <button onClick={() => handelDelete()} className={styles.removeBtn}>
+            <img
+              src="../src/assets/images/icon-remove-item.svg"
+              alt="an x icon"
+            />
+          </button>
+        </div>
+      )}
     </div>
   );
 };

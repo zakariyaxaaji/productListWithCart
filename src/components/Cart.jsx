@@ -3,25 +3,30 @@ import styles from "./cart.module.css";
 import { useContext } from "react";
 import { cartItemsContext } from "./Container";
 import CartItem from "./CartItem";
+import { createPortal } from "react-dom";
+import Modal from "./Modal";
 
-const Cart = ({ modalView, setModalView }) => {
+
+const Cart = ({modalView}) => {
   const cartData = useContext(cartItemsContext);
   const { readyCart, setReadyCart } = cartData;
   const orderTotal = readyCart.reduce((acc, item) => {
     return (acc += item.totalPrice);
   }, 0);
 
+  Cart.defaultProps  = {
+    modalView: false
+  };
+
   function openPortal() {
     console.log("open portal i clicked, modalView is set to TRUE");
-    setModalView && setModalView(true);
+    
   }
 
   function closePortal() {
     console.log("close portal i clicked, modalView is set to FALSE");
     setReadyCart([]);
-    setModalView && setModalView(false);
   }
-  console.log(modalView); // return undefiend
   console.log(readyCart);
   return (
     <div
@@ -47,6 +52,7 @@ const Cart = ({ modalView, setModalView }) => {
                 readyCart={readyCart}
                 setReadyCart={setReadyCart}
                 product={product}
+                modalView={modalView}
               />
             </div>
           ))}
@@ -75,7 +81,6 @@ const Cart = ({ modalView, setModalView }) => {
           )}
         </div>
       )}
-      
     </div>
   );
 };
