@@ -10,7 +10,7 @@ const App = () => {
     <div>
       <Container>
         <ProductList />
-        <Cart /> {/* cart here is not using any props */}
+        <Cart /> 
         <Overlay/>
       </Container>
     </div>
