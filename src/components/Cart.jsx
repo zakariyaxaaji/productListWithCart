@@ -3,23 +3,21 @@ import { useContext } from "react";
 import { cartItemsContext } from "./Container";
 import CartItem from "./CartItem";
 
-const Cart = ({ modalView }) => {
+const Cart = ({ modalView = false, setModalView = () => {} }) => {
   const cartData = useContext(cartItemsContext);
   const { readyCart, setReadyCart } = cartData;
   const orderTotal = readyCart.reduce((acc, item) => {
     return (acc += item.totalPrice);
   }, 0);
 
-  Cart.defaultProps = {
-    modalView: false,
-  };
-
   function openPortal() {
-    console.log("open portal i clicked, modalView is set to TRUE");
+    console.log(`open portal i clicked, modalView is set to ${modalView}`);
+    setModalView(true);
   }
 
   function closePortal() {
-    console.log("close portal i clicked, modalView is set to FALSE");
+    console.log(`close portal i clicked, modalView is set to ${modalView}`);
+    setModalView(false);
     setReadyCart([]);
   }
   console.log(readyCart);
@@ -79,16 +77,17 @@ const Cart = ({ modalView }) => {
             </div>
           )}
 
-          {modalView ? (
-            <button className={styles.confirmOrder} onClick={closePortal}>
-              Start New Order
-            </button>
-          ) : (
+          {!modalView && (
             <button className={styles.confirmOrder} onClick={openPortal}>
               Confirm Order
             </button>
           )}
         </div>
+      )}
+      {modalView && (
+        <button className={styles.confirmOrder} onClick={closePortal}>
+          Start New Order
+        </button>
       )}
     </div>
   );

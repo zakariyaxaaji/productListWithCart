@@ -68,15 +68,4 @@ a {
   text-decoration: none;
   color: inherit;
 }
-#modal {
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgb(0 0 0 / 77%);
-  
-}
+

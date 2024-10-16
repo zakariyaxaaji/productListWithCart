@@ -6,7 +6,7 @@ import Product from "./Product";
 const ProductList = () => {
   const products = productsData;
   return (
-    <div>
+    <div className={styles.productList}>
       <h1>Desserts</h1>
       <div className={styles.productListContainer}>
         {products.map((product) => {

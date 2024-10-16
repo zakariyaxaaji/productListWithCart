@@ -5,13 +5,13 @@ import ProductList from "./components/ProductList";
 import Cart from "./components/Cart";
 import Overlay from "./components/Overlay";
 const App = () => {
-  
+  const [modalView, setModalView] = useState(false);
   return (
     <div>
       <Container>
         <ProductList />
-        <Cart /> 
-        <Overlay/>
+        <Cart setModalView={setModalView}  />
+        {modalView && <Overlay modalView={modalView} setModalView={setModalView} />}
       </Container>
     </div>
   );

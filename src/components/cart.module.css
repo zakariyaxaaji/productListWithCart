@@ -1,11 +1,12 @@
-.cartContainer{
+.cartContainer {
   background-color: var(--rose50);
   height: fit-content;
+  margin: 1rem;
   padding: 1.5rem;
   border-radius: 8px;
-  width: 28%;
+  width: clamp(315px, 400px, 900px);
 }
-.cartContainer h4{
+.cartContainer h4 {
   color: var(--red);
 }
 .imgContainer {
@@ -13,60 +14,62 @@
   justify-content: center;
   align-items: center;
 }
-.orderTotal{
+.orderTotal {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
-.confirmOrder{
+
+
+.carbonNeutral {
+  background-color: var(--rose100);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.8rem;
+  padding: .2rem;
+  margin: 1rem;
+}
+.modalCartContainer {
+  padding: 2rem;
+  max-width: 500px;
+  margin: auto;
+  background-color: var(--rose100);
+  border: 1px solid hsla(0, 0%, 0%, 0.089);
+  border-radius: 8px;
+  display: grid;
+}
+.modalHeader {
+  margin: 1rem 0rem;
+}
+.modalListContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-height: 400px;
+  border-radius: 8px;
+  padding: 0.5rem;
+  background-color: var(--rose50);
+  overflow: auto;
+}
+.confirmOrder {
   width: 80%;
-  height: 2rem;
+  height: 2.5rem;
   border-radius: 1rem;
   display: block;
   margin: 0 auto;
   background-color: var(--red);
   color: white;
   transition: background-color, 1s;
+  margin: 1rem auto;
+  align-self: center;
 }
-.confirmOrder:hover{
+.confirmOrder:hover {
   background-color: var(--rose900);
 }
-
-.carbonNeutral{
-  background-color: var(--rose50);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  font-size: .8rem;
-  margin: 1rem;
-}
-.modalCartContainer{
-  position: absolute;
-  z-index: 2;
-  
-  padding: 2rem;
-  width: 30%;
-  margin: auto;
-  background-color: var(--rose100);
-  border: 1px solid hsla(0, 0%, 0%, 0.089);
-  border-radius: 8px;
-  
-}
-.modalHeader{
-margin: 1rem 0rem;
-}
-.modalListContainer{
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  border-radius: 8px;
-  padding: .5rem;
-  background-color: var(--rose50);
-  
-}
-.modalViewOrderTotal{
+.modalViewOrderTotal {
   margin-left: 1rem;
 }
