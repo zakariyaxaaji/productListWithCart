@@ -1,3 +1,8 @@
+.productContainer{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
 .imgContainer {
   width: 200px;
   margin-bottom: .9rem;
@@ -25,4 +30,16 @@
 .productText span:nth-child(3){
   color: var(--red);
   font-weight: var(--fw-semibold);
+}
+
+@media screen and (max-width: 560px) {
+  .imgContainer{
+    width: 400px;
+  }
+}
+@media screen and (max-width: 560px) {
+  .productContainer{
+    margin: .5rem auto;
+  }
+  
 }

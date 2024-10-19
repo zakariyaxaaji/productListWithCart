@@ -4,7 +4,8 @@
   margin: 1rem;
   padding: 1.5rem;
   border-radius: 8px;
-  width: clamp(315px, 400px, 900px);
+  min-width: 300px;
+  /* clamp(min(300px), 400px, max(900px));   */
 }
 .cartContainer h4 {
   color: var(--red);
@@ -72,4 +73,13 @@
 }
 .modalViewOrderTotal {
   margin-left: 1rem;
+}
+@media screen and (max-width: 784px){
+  .cartContainer{
+    margin: 0 1rem;
+    margin-top: 3rem;
+  }
+}
+@media screen and (max-width: 560px) {
+ 
 }
