@@ -81,5 +81,11 @@
   }
 }
 @media screen and (max-width: 560px) {
- 
+  .cartContainer{
+    margin: 0;
+    
+  }
+  .modalCartContainer{
+    position: inherit;
+  }
 }

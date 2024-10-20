@@ -55,3 +55,12 @@
 .quantity:hover {
   fill: var(--red);
 }
+
+@media screen and (max-width: 560px) {
+  .addToCartBtn,
+  .inputContainer {
+    left: 50%;
+    transform: translateX(-50%);
+    height: 44px;
+  }
+}

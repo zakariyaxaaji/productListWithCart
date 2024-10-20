@@ -34,12 +34,10 @@
 
 @media screen and (max-width: 560px) {
   .imgContainer{
-    width: 400px;
+    width: 100%;
   }
-}
-@media screen and (max-width: 560px) {
   .productContainer{
     margin: .5rem auto;
   }
-  
 }
+

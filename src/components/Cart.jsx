@@ -91,6 +91,6 @@ const Cart = ({ modalView = false, setModalView = () => {} }) => {
       )}
     </div>
   );
-};
+}
 
 export default Cart;

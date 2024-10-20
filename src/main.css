@@ -62,10 +62,15 @@ body {
   font-family: "RedHat", sans-serif;
   font-size: var(--btx);
   background-color: var(--rose100);
+  position: relative;
 }
 
 a {
   text-decoration: none;
   color: inherit;
 }
+.noScroll{
+  overflow: hidden;
+}
+
 
