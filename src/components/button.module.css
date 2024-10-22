@@ -9,6 +9,7 @@
   bottom: -5%;
   border: solid 1px var(--red);
   font-weight: bold;
+  color: var(--rose900);
 }
 .divInBtn {
   display: flex;
