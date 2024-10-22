@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import styles from "./button.module.css";
 import { useContext } from "react";
 import { cartItemsContext } from "./Container";

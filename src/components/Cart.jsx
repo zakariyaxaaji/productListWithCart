@@ -11,12 +11,12 @@ const Cart = ({ modalView = false, setModalView = () => {} }) => {
   }, 0);
 
   function openPortal() {
-    console.log(`open portal i clicked, modalView is set to ${modalView}`);
+    console.log(`openPortal is clicked, modalView is set to ${modalView}`);
     setModalView(true);
   }
 
   function closePortal() {
-    console.log(`close portal i clicked, modalView is set to ${modalView}`);
+    console.log(`closePortal is clicked, modalView is set to ${modalView}`);
     setModalView(false);
     setReadyCart([]);
   }

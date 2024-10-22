@@ -3,8 +3,6 @@ import { useState, createContext, useEffect } from "react";
 export const cartItemsContext = createContext();
 
 const Container = ({ children }) => {
-  //console.log(cartItems)
-  // const readyCart = cartSummary(cartItems);
   const [readyCart, setReadyCart] = useState([]);
   const cartData = { readyCart, setReadyCart };
   return (
