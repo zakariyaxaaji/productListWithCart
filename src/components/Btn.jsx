@@ -65,7 +65,7 @@ const Btn = ({ product, setActive }) => {
     <button onClick={addToCart} className={styles.addToCartBtn}>
       <div className={styles.divInBtn}>
         <img
-          src="../src/assets/images/icon-add-to-cart.svg"
+          src="./src/assets/images/icon-add-to-cart.svg"
           alt="ad to cart image"
         />
         <p>Add to Cart</p>
