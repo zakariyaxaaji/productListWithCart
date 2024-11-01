@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./productList.module.css";
 import productsData from "../data.json";
+
 import Product from "./Product";
 
 const ProductList = () => {
