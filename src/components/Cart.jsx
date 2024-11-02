@@ -39,7 +39,7 @@ const Cart = ({ modalView = false, setModalView = () => {} }) => {
         <div>
           <div className={styles.imgContainer}>
             <img
-              src="productListWithCart\public\assets\images\illustration-empty-cart.svg"
+              src="assets\images\illustration-empty-cart.svg"
               alt="Illustration of empty cart"
             />
           </div>
