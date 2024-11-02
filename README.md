@@ -35,7 +35,7 @@ Users should be able to:
 
 ### Screenshot
 
-![screenshot of app](./dist/assets/images/Screenshot%20(159).png)
+![screenshot of app](dist/assets/images/Screenshot%20(159).png)
 
 
 ### Links
