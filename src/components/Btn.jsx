@@ -65,7 +65,7 @@ const Btn = ({ product, setActive }) => {
     <button onClick={addToCart} className={styles.addToCartBtn}>
       <div className={styles.divInBtn}>
         <img
-          src="./src/assets/images/icon-add-to-cart.svg"
+          src="assets/images/icon-add-to-cart.svg"
           alt="ad to cart image"
         />
         <p>Add to Cart</p>
@@ -77,7 +77,7 @@ const Btn = ({ product, setActive }) => {
       <button onClick={decrement}>
         <img
           className={styles.quantity}
-          src="../src/assets/images/icon-decrement-quantity.svg"
+          src="assets/images/icon-decrement-quantity.svg"
           alt="decrement icon"
         />
       </button>
@@ -85,7 +85,7 @@ const Btn = ({ product, setActive }) => {
       <button onClick={increment}>
         <img
           className={styles.quantity}
-          src="../src/assets/images/icon-increment-quantity.svg"
+          src="assets/images/icon-increment-quantity.svg"
           alt="decrement icon"
         />
       </button>

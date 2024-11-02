@@ -29,7 +29,7 @@ const Cart = ({ modalView = false, setModalView = () => {} }) => {
         <h4>Your Cart ({readyCart.length})</h4>
       ) : (
         <div className={styles.modalHeader}>
-          <img src="../src/assets/images/icon-order-confirmed.svg" alt="" />
+          <img src="assets/images/icon-order-confirmed.svg" alt="" />
           <h1>Order Confirmed</h1>
           <p>We hope you enjoy your food!!</p>
         </div>
@@ -39,7 +39,7 @@ const Cart = ({ modalView = false, setModalView = () => {} }) => {
         <div>
           <div className={styles.imgContainer}>
             <img
-              src="../../public/assets/images/illustration-empty-cart.svg"
+              src="productListWithCart\public\assets\images\illustration-empty-cart.svg"
               alt="Illustration of empty cart"
             />
           </div>
@@ -70,7 +70,7 @@ const Cart = ({ modalView = false, setModalView = () => {} }) => {
           </div>
           {!modalView && (
             <div className={styles.carbonNeutral}>
-              <img src="../src/assets/images/icon-carbon-neutral.svg" alt="" />
+              <img src="assets/images/icon-carbon-neutral.svg" alt="carbon neutral icon" />
               <p>
                 This is a <b>carbon-neutral</b> delivery
               </p>

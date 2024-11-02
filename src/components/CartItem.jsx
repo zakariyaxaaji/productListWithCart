@@ -27,7 +27,7 @@ const CartItems = ({ readyCart, setReadyCart, product, modalView }) => {
         <div className={styles.deleteBtnContainer}>
           <button onClick={() => handelDelete()} className={styles.removeBtn}>
             <img
-              src="../src/assets/images/icon-remove-item.svg"
+              src="assets/images/icon-remove-item.svg"
               alt="an x icon"
             />
           </button>
